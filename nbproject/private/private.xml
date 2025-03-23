@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/model/GoogleAccount.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/servlet/RegisterServlet.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/dao/DatabaseConnection.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/servlet/SearchControll.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/web/filteredProducts.jsp</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/model/Cart.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/web/intro.jsp</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/model/Product.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/servlet/LoginServlet.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/web/footer.jsp</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/servlet/ProductDetail.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/web/index.jsp</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/model/Category.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/servlet/BrandServlet.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/servlet/ProductServlet.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/dao/UserDAO.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/servlet/HomeServlet.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/dao/ProductDAO.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/model/Brand.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/constant/Iconstant.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/web/ProductDetail.jsp</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/servlet/GoogleLogin.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/web/Login.jsp</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/web/header.jsp</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/web/new.html</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/src/java/servlet/CategoriesServlet.java</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/web/Product.jsp</file>
+            <file>file:/C:/Users/gia%20huy/Documents/NetBeansProjects/StorePrj/web/Register.jsp</file>
+        </group>
+    </open-files>
+</project-private>
