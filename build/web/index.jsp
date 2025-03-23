@@ -1,6 +1,6 @@
 <!DOCTYPE jsp>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="java.util.List, model.Product" %>
+<%@ page import="java.util.List, model.Product,model.User" %>
 
 
 <html lang="vi">

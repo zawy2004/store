@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 /**
@@ -9,9 +5,10 @@ package model;
  * @author gia huy
  */
 public class GoogleAccount {
-    private String  id, email, name, first_name, given_name, family_name, picture; 
+    private String id, email, name, first_name, given_name, family_name, picture; 
     private boolean verified_email;
 
+    // Constructor với tham số
     public GoogleAccount(String id, String email, String name, String first_name, String given_name, String family_name, String picture, boolean verified_email) {
         this.id = id;
         this.email = email;
@@ -23,10 +20,20 @@ public class GoogleAccount {
         this.verified_email = verified_email;
     }
 
+    // Constructor không tham số (sửa để không ném ngoại lệ)
     public GoogleAccount() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        // Khởi tạo các giá trị mặc định nếu cần
+        this.id = null;
+        this.email = null;
+        this.name = null;
+        this.first_name = null;
+        this.given_name = null;
+        this.family_name = null;
+        this.picture = null;
+        this.verified_email = false;
     }
 
+    // Getters và setters
     public String getId() {
         return id;
     }
@@ -90,5 +97,18 @@ public class GoogleAccount {
     public void setVerified_email(boolean verified_email) {
         this.verified_email = verified_email;
     }
-    
+
+    @Override
+    public String toString() {
+        return "GoogleAccount{" +
+                "id='" + id + '\'' +
+                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", first_name='" + first_name + '\'' +
+                ", given_name='" + given_name + '\'' +
+                ", family_name='" + family_name + '\'' +
+                ", picture='" + picture + '\'' +
+                ", verified_email=" + verified_email +
+                '}';
+    }
 }

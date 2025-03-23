@@ -9,11 +9,11 @@ package constant;
  * @author gia huy
  */
 public class Iconstant {
-    public static final String GOOGLE_CLIENT_ID = "2986954349-sd9s50t9rg6bifqcq9cc3e8lsio8v7c9.apps.googleusercontent.com";
+    public static final String GOOGLE_CLIENT_ID = "267050691689-6jt33htajqucencbmu6uoa2c4cpafqs2.apps.googleusercontent.com";
 
-    public static final String GOOGLE_CLIENT_SECRET = "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";
+    public static final String GOOGLE_CLIENT_SECRET = "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";
 
-    public static final String GOOGLE_REDIRECT_URI = "http://localhost:8080/StorePrj/HomeServlet";
+    public static final String GOOGLE_REDIRECT_URI = "http://localhost:8080/StorePrj/LoginServlet";
 
     public static final String GOOGLE_GRANT_TYPE = "authorization_code";
 

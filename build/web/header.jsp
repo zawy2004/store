@@ -1,4 +1,6 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>    
+<%@page contentType="text/html" pageEncoding="UTF-8"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="model.User"%>
 <header class="header">
         <div class="container">
             <div class="top-link clearfix hidden-sm hidden-xs">
@@ -10,35 +12,41 @@
                         <a href=""><i class="fab fa-youtube" style="font-size: 24px; margin-right: 10px;color: red;"></i></a>
                         <a href=""><i class="fab fa-twitter" style="font-size: 24px; margin-right: 10px"></i></a>
                     </div>
+                     
                     <div class="col-6 login_link">
-                        <ul class="header_link right m-auto">
+                        <c:if test="${sessionScope.user == null}">
+                         <ul class="header_link right m-auto">
+                            
                             <li>
-                                <a href="./LoginServlet"><i class="fas fa-sign-in-alt mr-3"></i>Đăng nhập</a>
+                                <a href="./Login.jsp"><i class="fas fa-sign-in-alt mr-3"></i>Đăng nhập</a>
                             </li>
+                            
                             <li>
-                                <a href="./register"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i>Đăng kí</a>
+                                <a href="./Login.jsp"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i>Đăng kí</a>
                             </li>
                         </ul>
+                     </div>
+                        </c:if> 
+                       <div class="col-6 login_link">
+                         
                         <ul class="nav nav__first right">
                             <li class="nav-item nav-item__first nav-item__first-user">
                                 <img src="./assets/img/product/noavatar.png" alt="" class="nav-item__first-img">
-                                <span class="nav-item__first-name">user</span>
+                                <span class="nav-item__first-name">${user.name}</span>
                                 <ul class="nav-item__first-menu">
                                     <li class="nav-item__first-item">
                                         <a href="">Tài khoản của tôi</a>
                                     </li>
                                     <li class="nav-item__first-item">
-                                        <a href="">Địa chỉ của tôi</a>
-                                    </li>
-                                    <li class="nav-item__first-item">
                                         <a href="">Đơn mua</a>
                                     </li>
                                     <li class="nav-item__first-item">
-                                        <a href="">Đăng xuất</a>
+                                        <a href="./LogoutServlet">Đăng xuất</a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
+                           
                     </div>
                 </div>
             </div>
