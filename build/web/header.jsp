@@ -35,7 +35,7 @@
                                 <span class="nav-item__first-name">${user.name}</span>
                                 <ul class="nav-item__first-menu">
                                     <li class="nav-item__first-item">
-                                        <a href="">Tài khoản của tôi</a>
+                                        <a href="./accountManagement.jsp">Tài khoản của tôi</a>
                                     </li>
                                     <li class="nav-item__first-item">
                                         <a href="">Đơn mua</a>
@@ -55,12 +55,12 @@
                     <div class="col-lg-3 col-100-h">
                         <div id="trigger-mobile" class="visible-sm visible-xs"><i class="fas fa-bars"></i></div>
                         <div class="logo">
-                            <a href="index.jsp">
+                            <a href="./HomeServlet">
                                 <img src="./assets/img/logo/logomain.png" alt="">
                             </a>
                         </div>
                         <div class="mobile_cart visible-sm visible-xs">
-                            <a href="./cart.jsp" class="header__second__cart--icon">
+                            <a href="./CartServlet" class="header__second__cart--icon">
                                 <i class="fas fa-shopping-cart"></i>
                                 <span id="header__second__cart--notice" class="header__second__cart--notice">3</span>
                             </a>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="col-3 m-auto hidden-sm hidden-xs">
                         <div class="item-car clearfix">
-                            <a href="./cart.jsp" class="header__second__cart--icon">
+                            <a href="./CartServlet" class="header__second__cart--icon">
                                 <i class="fas fa-shopping-cart"></i>
                                 <span id="header__second__cart--notice" class="header__second__cart--notice">3</span>
                             </a>

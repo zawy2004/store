@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author gia huy
  */
-class Cart {
+public class Cart {
     private int cartId;
     private int userId;
     private int productId;

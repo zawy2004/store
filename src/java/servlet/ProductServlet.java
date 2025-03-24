@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import model.Brand;
-import model.Category;
 import model.Product;
 
 public class ProductServlet extends HttpServlet {

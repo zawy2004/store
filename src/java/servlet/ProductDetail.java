@@ -27,12 +27,12 @@ public class ProductDetail extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         String productIdStr = request.getParameter("productId");
-
+        String quantity = request.getParameter("quantity");
         if (productIdStr != null) {
             try {
                 int productId = Integer.parseInt(productIdStr);
                 ProductDAO productDAO = new ProductDAO();
-                System.out.println(productId);
+              
                
                 // Lấy thông tin sản phẩm
                 Product product = productDAO.getProductById(productId);
@@ -44,6 +44,7 @@ public class ProductDetail extends HttpServlet {
                 Category ca = productDAO.getCategories(product.getCategoryId());
 
                 if (product != null) {
+                    request.setAttribute("quantity",quantity);
                     request.setAttribute("ca", ca);
                     request.setAttribute("product", product);
                     request.setAttribute("productImages", productImages);

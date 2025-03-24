@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ page import="java.util.List, model.Product,model.Category,model.Brand" %>
 <!DOCTYPE html>
@@ -309,55 +310,55 @@
                             <div class="product__filter">
                                 <h4 class="coll-name" class="product__filter-heading">Thương hiệu</h4>
                                 <ul id="thuonghieu" class="product__filter-ckeckbox">
-  <%
-       List<Brand> bList = (List<Brand>) request.getAttribute("bList");
+                                <%
+                                     List<Brand> bList = (List<Brand>) request.getAttribute("bList");
        
-                    %>
-                    <c:forEach var="bra" items="${bList}">
-                    
-                                    <li class="product__filter-item">
-                                        
-                                        <a class="btn btn-buynow" href="BrandServlet?bra=${bra.brandId}">${bra.brandName}</a>
-                                       
-                                    </li>
-                    </c:forEach>
-                                </ul>
-                            </div>
+                                %>
+                                <c:forEach var="bra" items="${bList}">
 
+                                    <li class="product__filter-item">
+
+                                        <a class="btn btn-buynow" href="BrandServlet?bra=${bra.brandId}">${bra.brandName}</a>
+
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-9 col-12">
+                    <div class="sort-wrap row">
+                        <div class="sort-left col-12 col-lg-6">
+                            <h1 class="coll-name">Tất cả sản phẩm</h1>
+                        </div>
+                        <div class="sort-right col-12 col-lg-6">
+                            <div class="sortby">
+                                <label for="">Sắp xếp theo:</label>
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
+                                        Sản phẩm nổi bật
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" id="sort1">Giá: Tăng dần</a>
+                                        <a class="dropdown-item" id="sort2">Giá: giảm dần</a>
+                                        <a class="dropdown-item" id="sort3">Tên A->Z</a>
+                                        <a class="dropdown-item" id="sort4">Tên Z->A</a>
+                                        <a class="dropdown-item" id="sort5">Cũ nhất</a>
+                                        <a class="dropdown-item" id="sort6">Mới nhất</a>
+                                        <a class="dropdown-item" id="sort7">Bán chạy nhất</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sortby2 hidden" style="float: right;">
+                                <div class="dropdown">
+                                    <button class="btn btn-dark dropdown-toggle" id="filter">
+                                        Lọc sản phẩm
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-9 col-12">
-                        <div class="sort-wrap row">
-                            <div class="sort-left col-12 col-lg-6">
-                                <h1 class="coll-name">Tất cả sản phẩm</h1>
-                            </div>
-                            <div class="sort-right col-12 col-lg-6">
-                                <div class="sortby">
-                                    <label for="">Sắp xếp theo:</label>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
-                                            Sản phẩm nổi bật
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" id="sort1">Giá: Tăng dần</a>
-                                            <a class="dropdown-item" id="sort2">Giá: giảm dần</a>
-                                            <a class="dropdown-item" id="sort3">Tên A->Z</a>
-                                            <a class="dropdown-item" id="sort4">Tên Z->A</a>
-                                            <a class="dropdown-item" id="sort5">Cũ nhất</a>
-                                            <a class="dropdown-item" id="sort6">Mới nhất</a>
-                                            <a class="dropdown-item" id="sort7">Bán chạy nhất</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="sortby2 hidden" style="float: right;">
-                                    <div class="dropdown">
-                                        <button class="btn btn-dark dropdown-toggle" id="filter">
-                                            Lọc sản phẩm
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
 
                     <%
@@ -387,8 +388,13 @@
                                         <div class="card-body">
                                             <h5 class="card-title description">${product.name}</h5>
                                             <div class="product__price">
-                                                <p class="card-text price-color product__price-old">${product.price * 1.2}đ</p>
-                                                <p class="card-text price-color product__price-new">${product.price} đ</p>
+                                                <p class="card-text price-color product__price-old">
+                                                    <fmt:formatNumber value="${product.price * 1.2}" type="number" pattern="#,###" /> đ
+                                                </p>
+
+                                                <p class="card-text price-color product__price-new">
+                                                    <fmt:formatNumber value="${product.price}" type="number" pattern="#,###" /> đ
+                                                </p>
                                             </div>
                                             <div class="home-product-item__action">
                                                 <span class="home-product-item__like home-product-item__like--liked">
@@ -706,28 +712,28 @@
 <script src="./assets/js/main.js"></script>
 <script src="./assets/js/product.js"></script>
 <<script>
-                                            function filterProducts() {
-                                                // Lấy giá trị từ radio button (khoảng giá)
-                                                var priceRange = document.querySelector('input[name="optradio"]:checked').value;
+                                        function filterProducts() {
+                                            // Lấy giá trị từ radio button (khoảng giá)
+                                            var priceRange = document.querySelector('input[name="optradio"]:checked').value;
 
-                                                // Lấy giá trị từ các checkbox (thương hiệu)
-                                                var brandIds = [];
-                                                document.querySelectorAll('.checkthuonghieu:checked').forEach(function (checkbox) {
-                                                    brandIds.push(checkbox.value);
-                                                });
+                                            // Lấy giá trị từ các checkbox (thương hiệu)
+                                            var brandIds = [];
+                                            document.querySelectorAll('.checkthuonghieu:checked').forEach(function (checkbox) {
+                                                brandIds.push(checkbox.value);
+                                            });
 
-                                                // Tạo yêu cầu AJAX
-                                                var xhr = new XMLHttpRequest();
-                                                xhr.open("POST", "FilterProducts", true);
-                                                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                                                xhr.onreadystatechange = function () {
-                                                    if (xhr.readyState === 4 && xhr.status === 200) {
-                                                        // Cập nhật danh sách sản phẩm mà không cần load lại trang
-                                                        document.querySelector(".product__new .container").innerHTML = xhr.responseText;
-                                                    }
-                                                };
-                                                xhr.send("priceRange=" + priceRange + "&brandIds=" + brandIds.join(","));
-                                            }
+                                            // Tạo yêu cầu AJAX
+                                            var xhr = new XMLHttpRequest();
+                                            xhr.open("POST", "FilterProducts", true);
+                                            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                                            xhr.onreadystatechange = function () {
+                                                if (xhr.readyState === 4 && xhr.status === 200) {
+                                                    // Cập nhật danh sách sản phẩm mà không cần load lại trang
+                                                    document.querySelector(".product__new .container").innerHTML = xhr.responseText;
+                                                }
+                                            };
+                                            xhr.send("priceRange=" + priceRange + "&brandIds=" + brandIds.join(","));
+                                        }
 </script>
 
 </html>

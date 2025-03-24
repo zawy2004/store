@@ -1,15 +1,10 @@
-<%-- 
-    Document   : ProductDetail
-    Created on : Mar 16, 2025, 5:21:02 PM
-    Author     : gia huy
---%>
-<!DOCTYPE jsp>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<%@ page import="java.util.List, model.ProductImage,model.Product,model.Category,model.ProductDetail" %>
-
-<html lang="en">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List, model.ProductImage,model.Product,model.Category,model.ProductDetail,model.User" %>
+<!DOCTYPE jsp>
+<html lang="en">    
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -367,15 +362,15 @@
     </div>
     <!-- end mobile menu -->
     <!-- header -->
-     <jsp:include page="header.jsp"></jsp:include>
-    <!-- end header -->
-    <!-- product detail -->
-    <div class="container">
-        <div class="product__detail">
-            <div class="row product__detail-row">
-                <div class="col-lg-6 col-12 daonguoc">
-                    <div class="img-product">
-                        <ul class="all-img">
+    <jsp:include page="header.jsp"></jsp:include>
+        <!-- end header -->
+        <!-- product detail -->
+        <div class="container">
+            <div class="product__detail">
+                <div class="row product__detail-row">
+                    <div class="col-lg-6 col-12 daonguoc">
+                        <div class="img-product">
+                            <ul class="all-img">
 
                             <%
                                 List<ProductImage> images = (List<ProductImage>) request.getAttribute("productImages");
@@ -465,16 +460,15 @@
                         
                       </div>
                     </div> -->
-                
-                  
+
                     <div class="product__wrap">
                         <div class="product__amount">
                             <label for="">Số lượng: </label>
                             <input type="button" value="-" class="control" onclick="tru()" id="cong">
-                            <input type="text" value="1" class="text-input" id="text_so_luong" onkeypress='validate(event)'> 
+                            <input type="text" value="1" class="text-input" id="quantity" onkeypress='validate(event)'> 
                             <input type="button" value="+" class="control" onclick="cong()">
                         </div>
-                        <button class="add-cart" onclick="fadeInModal()">Thêm vào giỏ</button>
+                        <button class="add-cart" onclick="addToCart()" ><a href="CartServlet?productId=<%= product.getProductId()%>&quantity=1&userId=${user.userId}">Thêm vào giỏ</a></button>
                     </div>
                     <div class="product__shopnow">
                         <button class="shopnow">Mua ngay</button>
@@ -499,17 +493,17 @@
                                
                                     for (ProductDetail detail: Detail) {
                                    
-                            %>
+                    %>
                     <h3 class="name__product"><%= product.getName() %></h3>
                     <p>Phân khúc: Academy (tầm trung).</p>
                     <p>Size: <%= detail.getSize() %></p>
                     <p>Thiết kế: <%= detail.getContent() %></p>
                     <p>Chât Liệu:<%= detail.getMaterial() %> </p>
                     <p>Màu : <%= detail.getColor() %></p>
-                     <%
-                                    }
+                    <%
+                                   }
                                 
-                            %>
+                    %>
                 </div>
             </div>
         </div>
@@ -825,73 +819,86 @@
     </div>
     <!-- end  product relate to-->
     <!-- footer -->
- <jsp:include page="footer.jsp"></jsp:include>
-    <!-- end footer -->
+    <jsp:include page="footer.jsp"></jsp:include>
+        <!-- end footer -->
 
-    <div id="alert-cart" class="alert" style="display:none">
-        <div class="alert__heading">
-            <h4>Thêm vào giỏ hàng</h4>
-        </div>
-        <div class="alert__body">
-            <img src="./assets/img/product/addidas1.jpg" alt="" class="alert__body-img">
-            <div>
-                <h5 class="alert__body-name"></h5>
+        <div id="alert-cart" class="alert" style="display:none">
+            <div class="alert__heading">
+                <h4>Thêm vào giỏ hàng</h4>
+            </div>
+            <div class="alert__body">
+                <img src="./assets/img/product/addidas1.jpg" alt="" class="alert__body-img">
+                <div>
+                    <h5 class="alert__body-name"></h5>
 
-                <span class="alert__body-amount">Số lượng: 1</span>
-                <h6 class="alert__body-price">2.000.000 VNĐ</h6>
+                    <span class="alert__body-amount">Số lượng: 1</span>
+                    <h6 class="alert__body-price">2.000.000 VNĐ</h6>
+                </div>
+            </div>
+            <div class="alert__footer">
+                <a class="click__cart" style="border-radius: 4px">Xem giỏ hàng</a>
             </div>
         </div>
-        <div class="alert__footer">
-            <a class="click__cart" style="border-radius: 4px">Xem giỏ hàng</a>
-        </div>
-    </div>
-    <div class="overlay1" style="display: none" onclick="fadeout()">
+        <div class="overlay1" style="display: none" onclick="fadeout()">
 
-    </div>  
-</body>
-<script src="./assets/js/main.js"></script>
-<script src="./assets/js/zoomsl.js"></script>
-<script>
-        $(document).ready(function () {
-            $(".big-img").imagezoomsl({
-                zoomrange: [3, 3]
+        </div>  
+    </body>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/zoomsl.js"></script>
+    <script>
 
+            $(document).ready(function () {
+                $(".big-img").imagezoomsl({
+                    zoomrange: [3, 3]
+
+                });
             });
-        });
-</script>
-<script>
-    function cong() {
-        let input = document.getElementById("text_so_luong");
-        let value = parseInt(input.value);
+    <%
+    User user = (User) session.getAttribute("user");
+    int userId = (user != null) ? user.getUserId() : 0; // Nếu chưa đăng nhập, userId = 0
+    %>
 
-        if (!isNaN(value)) {
+      
+                    let userId = <%= userId %>; // Gán userId từ session vào JavaScript
+            function addToCart() {
+
+                    if (userId === 0) {
+                    alert("Vui lòng đăng nhập trước khi thêm vào giỏ hàng!");
+                    window.location.href = "Login.jsp"; // Chuyển hướng đến trang đăng nhập
+                    return;
+                }
+            }
+
+            function cong() {
+            let input = document.getElementById("quantity");
+                    let value = parseInt(input.value);
+                    if (!isNaN(value)) {
             input.value = value + 1;
-        }
-    }
+            }
+            }
 
-    function tru() {
-        let input = document.getElementById("text_so_luong");
-        let value = parseInt(input.value);
-
-        if (!isNaN(value) && value > 1) {
+            function tru() {
+            let input = document.getElementById("quantity");
+                    let value = parseInt(input.value);
+                    if (!isNaN(value) && value > 1) {
             input.value = value - 1;
-        }
-    }
-    function fadeInModal()
-    {
-        $('.alert').fadeIn();
-        $('.overlay1').fadeIn();
-    }
-    function fadeOutModal()
-    {
-        $('.alert').fadeOut();
-        $('.overlay1').fadeOut();
-    }
-    function fadeout()
-    {
-        $('.overlay1').fadeOut();
-        $('.alert').fadeOut();
-    }
-    setInterval(fadeOutModal, 7000);
+            }
+            }
+            function fadeInModal()
+            {
+            $('.alert').fadeIn();
+                    $('.overlay1').fadeIn();
+            }
+            function fadeOutModal()
+            {
+            $('.alert').fadeOut();
+                    $('.overlay1').fadeOut();
+            }
+            function fadeout()
+            {
+            $('.overlay1').fadeOut();
+                    $('.alert').fadeOut();
+            }
+            setInterval(fadeOutModal, 7000);
 </script>
 </html>
